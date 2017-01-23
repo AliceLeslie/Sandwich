@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="../css/page2.css">
+</head>
+<body>
+   <div class="container">
+   	  <h1>1.加载</h1>
+   	  <div>
+   	  	  <p>window.onload=function(){}/$(window).load(function(){})需要等待DOM结构渲染完毕且关联文件加在完毕后执行，比如img png,jpeg！$(function)/$(document).ready(),DOM结构加载完毕即可 运作！</p>
+   	  	  <div class="dl">
+   	  	  	<a href="javascript:;">诗兴大发否？</a>
+   	  	  	<p>忽如一夜春风过来，千树万树梨花开。<br>
+               问君能有几多愁，恰似一江春水向东流。
+   	  	  	</p>
+   	  	  </div>
+   	  	  <div class="dl2">
+   	  	  	<a href="javascript:;">守望漓江塔否？</a>
+   	  	  	<p>忽如一夜春风过来，千树万树梨花开。<br>
+               问君能有几多愁，恰似一江春水向东流。
+   	  	  	</p>
+   	  	  </div>
+   	  </div>
+   	  <h1>2.阻止事件冒泡</h1>
+   	  <div class="maopao">
+   	  	    <p>sslala</p>
+   	  	  	<span >aaa</span>
+   	  </div>
+   	  <h1>3.even.pageX,pageY</h1>
+   	  <h1>4.bind(),unbind();trigger();命名空间</h1>
+   	  <div>
+   	  	 unbind();不写参数移除所有绑定事件!unbind('click');移除click事件！unbind('click',thingname);
+bind('click',thingname=function(){do somethings});.one('click',function(){}),触发一次后自动删除事件!$oba.click(function(){$obb.trigger('click')});
+   	  </div>
+   	  <p>
+   	  	<img src="../image/imglem.png" alt="">
+   	  	.trigger('click!');匹配不包含在命名空间中的click;trigger('click'),所有的click,包含命名空间内的!
+   	  </p>
+      <h1>5.animation==</h1>
+      <p>hide(),show();fadeIn;fadeOut();slideUp();slideDown()</p>
+      <p>不同点：(1)show,hide是节点消失出现(2)slidUp,slideDown是改变高度实现(3)fadeIn改变透明度,因而宽高没变化</p>
+      <button  id="kdl" >move</button>
+      <div class="an1">
+      	
+      </div>
+      <pre>
+      	if(!$('.nn').is("animated")){}//如果对象不处于动画状态...;
+      	stop()动画预防重叠冲突机制！stop()停止正在进行的！stop(true),将接下来尚未执行的动画列队清空!stop(true,true),当前动画执行到末尾，且清空接下来尚未执行的动画列队~!
+      	.delay(),动画延时！.delay(1000),失控暂停!
+      </pre>
+       <span>ps晚上写个点击切换</span>
+       <div class="rongqi">
+       	
+       </div>
+ </div>
+    
+	<script src="../js/jquery-1.9.1.min.js"></script>
+	<script>
+		$(function(){
+            // 1.下拉动画,两种写法
+            $('.dl a').mouseover(function(){
+            	 $(this).next().slideDown();
+            }).mouseout(function(){
+            	 $(this).next().slideUp();
+            })
+            // $('.dl2 a').hover(
+            //      function(){
+            //         $(this).next().slideDown();
+            //      },
+            //      function(){
+            //          $(this).next().slideUp();  
+            //      }
+            // )
+            // 上下方法皆可
+            $('.dl2 a').hover(function(){
+            	$(this).next().slideToggle();
+            })
+            //2.阻止 冒泡
+              //默认发生冒泡
+              $('.maopao').click(function(){
+              	alert('ssr');
+              })
+              $('.maopao span').click(function(ev){
+              	 alert('sr');
+              	  // 1。return false;
+              	  //return false可行;(1)JQ中即阻止冒泡和默认行为，(2)Js中仅阻止默认行为，不阻止冒泡!
+              	  // 2。ev.stopPropagation();
+              	  //stopPropagation();W3C方法可行
+                  stopBubble(ev);
+                  // 3。封装冒泡函数可行
+
+
+              })
+              //冒泡兼容性!
+              function stopBubble(e) { 
+				//如果提供了事件对象，则这是一个非IE浏览器 
+					if ( e && e.stopPropagation ){ 
+					    //因此它支持W3C的stopPropagation()方法 
+					    e.stopPropagation(); 
+					    //引用过jq的话直接掉用会满足兼容性,否则还是写上兼容性好一点
+					}
+					else{ 
+					    //否则，我们需要使用IE的方式来取消事件冒泡 
+					    window.event.cancelBubble = true; 
+					}
+			   }
+			   //阻止浏览器默认行为,如a的连接,表单submit的提交==
+               //阻止浏览器的默认行为兼容性 
+				function stopDefault( e ) { 
+				    //阻止默认浏览器动作(W3C) 
+				    if ( e && e.preventDefault ) {
+				        e.preventDefault(); 
+				         //引用过jq的话直接掉用会满足兼容性,否则还是写上兼容性好一点
+				    }
+				    //IE中阻止函数器默认动作的方式 
+				    else {
+				        window.event.returnValue = false; 
+				        return false;
+				    } 
+				}
+			  //3动画animate
+			   $('#kdl').click(function(){
+			   		  // $('.an1').animate({'margin-left':'500px'},3000)
+			   		  $('.an1').animate({left:'500px',height:'100px'},3000).animate({'left':'10px','height':'30px'},3000,function(){$(this).css('box-shadow','0px 0px 3px 3px blue ')});
+			   		  //动画分两段，且在动画结束处利用animate回调 执行css()函数
+			   })
+		     
+
+		})
+	</script>
+</body>
+</html>

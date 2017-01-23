@@ -1,0 +1,9 @@
+*{margin: 0;padding: 0;text-decoration: none;list-style: none;}
+.clearfix{zoom:1;}
+.clearfix:after{display: block;clear: both;content: '';}
+body{background: #F3F5F7;}
+.container{width: 1200px;margin: 0 auto;background: white;box-shadow: 0px 0px  3px 3px red;margin-top: 20px;text-align: center;}
+.dl p{display: none;text-shadow:3px  3px 3px  blue;}
+.dl2 p{display: none;text-shadow:3px  3px 3px  pink;}
+.dl3 p{display: none;text-shadow:3px  3px 3px  green;}
+.an1{width: 30px;height: 30px;background: red;position: relative;}

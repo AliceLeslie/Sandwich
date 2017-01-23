@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="../css/page3t.css">
+</head>
+<body>
+  <div class="conta">
+       <h1>1.focus焦点获取</h1>
+  	   <input type="text" placeholder="猜猜什么没写">
+	   <h1>2.滚动条高度变化，按钮控制滚动条位置</h1>
+	   <div  class="gaoc">
+	         <div>
+	         	   <a href="javascript:;" class="upd">上移 </a>
+	              <a href="javascript:;" class="dod">下移 </a>
+	         </div>
+	   	    <textarea name="" id="mscroll" cols="30" rows="10">
+		   	 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet fugit dolores magnam odio distinctio dicta earum blanditiis, quisquam quibusdam delectus inventore ab tenetur provident, magni in voluptatem ullam quo, perspiciatis?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates veniam, facilis. Eum consequuntur eius accusantium, inventore maiores reiciendis architecto repellat cum voluptatibus deserunt dolores dolore, commodi perspiciatis eligendi, ducimus eos. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet possimus, cumque consequuntur, debitis aliquam deserunt rerum similique molestias eos dolor ipsa cum sit explicabo suscipit accusamus, quaerat quos odit cupiditate.
+		    </textarea>
+	   </div>
+	   <h1>3.全选与反选</h1>
+	   <div class="qx_box">
+	   	  <input type="radio" name="xb" value="man"><span>男</span>
+	   	  <input type="radio" name="xb" value="woman"><span>女</span>
+	   </div>
+	   <div class="fxk">
+
+	   	  <input type="checkbox" name="aih" value="足球">
+	   	  <input type="checkbox" name="aih" value="篮球">
+	   	  <input type="checkbox" name="aih" value="羽毛球">
+	   	  <input type="checkbox" name="aih" value="乒乓球">
+	   	  <input type="checkbox" name="aih" value="高尔夫球">
+	   	  <input type="checkbox" name="aih" value="橄榄球">
+          <a href="javascript:;" class="btn1">全选</a>
+          <a href="javascript:;"  class="btn2">全不选</a>
+          <a href="javascript:;" class="btn3">反选</a>
+          <a href="javascript:;" class="btn4">提交</a>
+
+	   </div>
+	   <h1>4.selected 转移</h1>
+	   <div class="sediv">
+	   
+	   	  <div>
+	   	     	  <select name="" id="se_1">
+		   	  	  <option value="1">lala</option>
+		   	  	  <option value="2">yaya</option>
+		   	  	  <option value="3">haha</option>
+		   	  	  <option value="4">wawa</option>
+		   	  	  <option value="5">mama</option>
+		   	  	  <option value="6">dada</option>
+		   	  	  <option value="7">baba</option>
+		   	       </select>
+		   	       <p class="pr">选中的选项添加给右侧</p>
+		   	       <p class="pr1">将全部选项添加给右侧</p>
+		   	       <p class="pr2">双击某个选项添给右侧</p>
+	   	  </div>
+	   	  <div>
+	   	  	      <select name="" id="se_2">
+	   	  	
+	   	          </select>
+	   	          	       <p class="pl">选中的选项添加给左侧</p>
+		   	       <p class="pl1">将全部选项添加给左侧</p>
+		   	       <p class="pl2">双击某个选项添给左侧</p>
+	   	  </div>
+	      <pre>.keyup(function(){}),键盘输入事件</pre>
+
+	     </div>
+	    <h1>5.表单变色</h1>
+	    <table class="bsq">
+	    	<tr>
+	    		<td>sss</td>
+	    		<td>sss</td>
+	    		<td>sss</td>
+	    		<td>sss</td>
+	    	</tr>
+	        <tr>
+	    		<td>sss</td>
+	    		<td>sss</td>
+	    		<td>sss</td>
+	    		<td>sss</td>
+	    	</tr>
+	        <tr>
+	    		<td>sss</td>
+	    		<td>sss</td>
+	    		<td>sss</td>
+	    		<td>sss</td>
+	    	</tr>
+	    	<tr>
+	    		<td>sss</td>
+	    		<td>sss</td>
+	    		<td>sss</td>
+	    		<td>sss</td>
+	    	</tr>
+	    </table>
+	    <h1>6.代码简化</h1>
+	    <pre>
+	    	var hass=$boj.hasClass('selected');
+	    	$boj[hass?"removeClass":"addClass"]('selected').find(':checkbox').prop('cheked',!hass);<br>
+	    	$boj.parents('.ss'),
+	    	$boj.parents('#ss')优化父元素选择
+	    </pre>
+	    <p class="lksa">filter哈哈啊sws</p>
+	   
+  </div>
+  
+  
+	<script src="../js/jquery-1.9.1.min.js"></script>
+	<script src="../js/tablejs.js"></script>
+	<script>
+		// $(function(){
+		// 	 $('#load').load("index.html");
+		// })
+	</script>
+</body>
+</html>

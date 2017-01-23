@@ -1,0 +1,27 @@
+.ct{width: 1200px;box-shadow: 0px 0px 3px 3px red;}
+input{border:1px solid #ccc;}
+
+@font-face{
+  font-family:"imooc-icon";
+  // 下面一行是IE9兼容模式
+  src:url("fonts/icomoon.eot");
+  src:url("fonts/icomoon.eot") format("embedded-opentype"),
+      url("fonts/icomoon.woff") format("woff"),
+      url("fonts/icomoon.ttf") format("truetype"),
+      url("fonts/icomoon.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+.imooc-icon{
+  font-family: "imooc-icon";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 64px;
+  // webkit和moz抗锯齿
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.home:before{
+   content: "\e902";
+   font-size: 100px;
+}

@@ -1,0 +1,18 @@
+ //除了IE6都可以！不行的话 写jQ
+input:focus,textarea:focus{
+   border:1px solid #foo;
+   background: red;
+}
+
+.gaoc{box-shadow: 0px 0px 3px 3px red;}
+.conta{width: 1200px;margin: 0 auto;}
+a{text-decoration: none;color: black;}
+.sediv>div{display: inline-block;}
+.sediv>div>select{display: block;}
+.bsq tr:nth-child(even){background: red;}
+.bsq tr:nth-child(odd){background: blue;}
+//even偶数 odd奇数 不过 css中从1开始 js中从0开始
+.even{background:red;}
+.odd{background: blue;}
+//兼容考虑,JS控制
+#load{height: 100px;}

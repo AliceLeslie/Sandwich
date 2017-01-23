@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+   <h1>性能优化</h1>
+   <h1>1.选择器的一些优化</h1>
+	<pre>
+		尽量使用id选择器，然后选取上下文
+		$('#id').find()..
+		$('a.button').filter(':animated');
+	</pre>
+   	<h1>2.缓存变量</h1>
+   	<p>再写时间之前，最好把御用的对象先用var $obj=$..，缓存起来，优化内存!</p>
+   	<p><pre>
+   		window.$my={head:$('head'),bhj:$('#sds'),fre:$('#sda')};function ss(){$my.head.append(ssdd);}
+   	</pre></p>
+   	<h1>3.DOM操作</h1>
+   	<p>比如说加载JSON数据，应该先循环遍历拼接字符串，再append 加入目标元素</p>
+   	<h1>4.事件代理</h1>
+   	<p>
+   		<pre>$('#tabled').click(function(e){var  $cc=$(e.target);$cc.css('background','red');})</pre>
+   		<pre>要求JQ1.7+;$('#tabled').on('click','li',function(){$(this).css(....);}) 整个事件监听封装到一个遍历事件中</pre>
+   	</p>
+   	<h1>5.长字符串拼接</h1>
+   	<p>
+   		<pre>var array=[];for(var i=0;i<=100;i++){
+   		array[i]='<li>'+ss+'</li>''};$('#list').html(array.join(''));将数组拼接成字符串;</pre>
+   	</p>
+   	<h1>6,减少调用函数的问题</h1>
+   	<p>
+   		<pre>
+   			$obj.click(function(){if($(obj).is(':checked')){do somethings;}});
+   			obj=$obj[0]/$obj.get(0);$obj.click(function(){if(obj.chechked){do somethings}});
+   		</pre>
+   	</p>
+    <button id="sste">sss</button>
+    <p id="divtz">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia harum facere aspernatur voluptates, officiis necessitatibus laborum nostrum cupiditate, doloribus soluta, alias recusandae eveniet quo rem vitae facilis. Enim, asperiores, dolore.
+   <a href="http://www.baidu.com"></a>	
+    </p>
+    <button id="haha2">
+    	点我看鼠标
+    </button>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia harum facere aspernatur voluptates, officiis necessitatibus laborum nostrum cupiditate, doloribus soluta, alias recusandae eveniet quo rem vitae facilis. Enim, asperiores, dolore.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia harum facere aspernatur voluptates, officiis necessitatibus laborum nostrum cupiditate, doloribus soluta, alias recusandae eveniet quo rem vitae facilis. Enim, asperiores, dolore.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia harum facere aspernatur voluptates, officiis necessitatibus laborum nostrum cupiditate, doloribus soluta, alias recusandae eveniet quo rem vitae facilis. Enim, asperiores, dolore.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia harum facere aspernatur voluptates, officiis necessitatibus laborum nostrum cupiditate, doloribus soluta, alias recusandae eveniet quo rem vitae facilis. Enim, asperiores, dolore.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia harum facere aspernatur voluptates, officiis necessitatibus laborum nostrum cupiditate, doloribus soluta, alias recusandae eveniet quo rem vitae facilis. Enim, asperiores, dolore.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia harum facere aspernatur voluptates, officiis necessitatibus laborum nostrum cupiditate, doloribus soluta, alias recusandae eveniet quo rem vitae facilis. Enim, asperiores, dolore.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia harum facere aspernatur voluptates, officiis necessitatibus laborum nostrum cupiditate, doloribus soluta, alias recusandae eveniet quo rem vitae facilis. Enim, asperiores, dolore.</p>
+    <script src="../js/jquery-1.9.1.min.js"></script>
+    <script>
+    	$(function(){
+    		// 1.阻止页面鼠标右键
+    		$(document).on('contextmenu',function(){
+    			return false;
+    		})
+    		//2.a连接都在新页面中出现
+    	     $('a[href^="http://"]').prop('target','_blank');
+    	     $('a[rel$="exssse"]').click(function(){
+    	     	this.target='_blank';
+    	     })
+    	     // 3判断浏览器
+    	     if($.support.chrome){
+    	     	alert('这是欧鹏');
+    	     }
+    	     // 4.返回页面顶部！
+    	      function bbs(obj1,speed){
+    	      	//距离浏览器顶部的距离;
+    	      	var juli=obj1.offset().top;
+    	      	// alert(juli);
+    	      	//页面滚动条滚动当前元素距离页面顶部的距离，也就是滚动到当前元素作用位置;
+    	      	$('html,body').stop().animate({scrollTop:juli+'px'},speed);
+    	      	// 动画连写
+    	      	// $('.an1').animate({left:'500px',height:'100px'},3000).animate({'left':'10px','height':'30px'},3000,function(){$(this).css('box-shadow','0px 0px 3px 3px blue ')});
+    	      }
+             $('#sste').click(function(){
+                 var  dx=$(this);
+                 bbs(dx);
+             });
+             // 5判断元素在页面中的位置,传参e是最方便的
+             $('#sste').mouseout(function(e){
+             	var  strings="X:"+e.pageX+"哈哈"+'Y:'+e.pageY;
+             	alert(strings);
+             })
+             //6 点击div跳转
+             $('#divtz').click(function(){
+             	var urls=$(this).find('a').prop('href');
+             	window.location=urls;
+             })
+             // 7.鼠标点击案件判断
+             $('#haha2').mousedown(function(e){
+               alert(e.which);
+             })
+             // 8。键盘事件！
+             $('input').keyup(function(e){
+                 if(e.which=="13"){
+                 	alert("感谢回车提交")
+                 }
+             })
+             //9全局ajax参数(单个或全局ajax loading可以加图片gif进去)
+             // $obj.ajaxStart(function(){})
+             // $obj.ajaxComplete(function(){})
+             // 10.下拉选项框
+             $('#ss').find('option:selected');
+             $('#Ss option:selected');
+
+    	})
+    </script>
+</body>
+</html>

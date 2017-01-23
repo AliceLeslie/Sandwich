@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="../css/page1.css">
+</head>
+<body>
+   <h1>1.jQ的疯狂回归 </h1>
+    <div class="box clearfix">
+    	<ul class="menu">
+    		<li class="le1">
+    			<a href="#none">衬衫</a>
+    			<ul class="le2">
+    				<li><a href="#none">短袖衬衫</a></li>
+    				<li><a href="#none">长袖衬衫</a></li>
+    				<li><a href="#none">花色衬衫</a></li>
+    				<li><a href="#none">待修衬衫</a></li>
+    				<li><a href="#none">就哈衬衫</a></li>
+    			</ul>
+    		</li>
+    		<li class="le1">
+    			<a href="#none">卫衣</a>
+    			<ul class="le2">
+    				<li><a href="#none">拉绒卫衣</a></li>
+    				<li><a href="#none">抓阄卫衣</a></li>
+    				<li><a href="#none">色情卫衣</a></li>
+    				<li><a href="#none">哈哈卫衣</a></li>
+    				<li><a href="#none">不穿卫衣</a></li>
+    			</ul>
+    		</li>
+    		<li class="le1">
+    			<a href="#none">裤子</a>
+    			<ul class="le2">
+    				<li><a href="#none">牛仔裤</a></li>
+    				<li><a href="#none">灯笼裤</a></li>
+    				<li><a href="#none">七分裤</a></li>
+    				<li><a href="#none">九分裤</a></li>
+    			</ul>
+    		</li>
+    		<li class="le1">
+    			<a href="#none">鞋子</a>
+    			<ul class="le2">
+    				<li><a href="#none">高跟鞋</a></li>
+    				<li><a href="#none">运动鞋</a></li>
+    				<li><a href="#none">休闲鞋</a></li>
+    				<li><a href="#none">探险鞋</a></li>
+    			</ul>
+    		</li>
+
+    	</ul>
+    </div>
+    <h1>2.疯狂上演</h1>
+    <pre>
+   	   $('#table>tbody>tr:has(td:has(:checkbox:enabled))').css('background','red');
+   	   选择tr里td有checkbox且能选未被禁用的 
+    </pre> 
+    <h1>3.方法不错位</h1>
+     <pre>
+     	jsobj.innerHTML()==jqobj.html(); jsobj.checked==jqboj.attr('cheked');
+     </pre>
+     <p>
+     	1.jq对象 var $sobj=$('....');
+     	js对象 var sobj=document.getElementsByTagName('...');   <br>
+     	2.对象转换; var $cr=$('#cr') var cr=$cr[0]/$cr.get(0);
+     	  eg: alert(cr.checked); 根据true,false判断
+     	  var cr=document.getElementById('Nx'); var $CR=$(cr); jsobj  to jqobj;
+     </p>
+         <h3>2.1;example;</h3>
+         <form action="">
+         	<input type="text" placeholder="性别"><br>
+         	<input type="text"  placeholder="年龄">
+         	<div>
+         		<input type="checkbox" id="keke"><span>确定阅读完条款么</span>
+         		<button class="ensure">确认</button><button>取消</button>		
+         	</div>
+         </form>
+    <h1 id="12d">4.JQ检查是否存在</h1>
+    <pre>
+    	js :if(jsobj){alert(ss)}; jq: if($('#kk').length>0){do somethings};  if($('#jj')[0]){alert('ss')};判断元素是否存在
+    </pre>
+    <h1>5.jq优势</h1>
+    <pre>
+    	var item=document.getElementsByClassName('ss');  for(var i=0;i<(item.length);i++){ item[i].onclick=function(){ jsboj.style.backgroundColor='red';}}
+
+    </pre>
+    <h1>*6.选中个数！</h1>
+     <table >
+         <thead>
+         	 <tr>
+         	 	<th><span class="quanx">全选</span><input type="checkbox" id="qxn"></th>
+         	 	<th>身高</th>
+         	 </tr>
+         </thead> 	
+         <tbody class="tbh">
+         	  <tr>
+         	  	<td class="che"><input type="checkbox" ></td>
+         	  	<td>177</td>
+         	  </tr>
+         	   <tr>
+         	  	<td class="che"><input type="checkbox" ></td>
+         	  	<td>177</td>
+         	  </tr>
+         	   <tr>
+         	  	<td class="che"><input type="checkbox"></td>
+         	  	<td>177</td>
+         	  </tr>
+         </tbody>
+     </table>
+     <h1>*7一些选择器</h1>
+        7(1)普通过滤 <br>
+     boj.next()==$('.ss+div');下一个兄弟元素!   obj.siblings('div')==obj.nextAll("div")==$('.ss~div');后面所有的兄弟元素!  <br>
+     $('div:not(.one)'),$('div:even'),$('div:odd'),$('div:eq(3)'),$('div:gt(3)').$('div:lt(3)');$('div:animated');$('input:focus');$('div;first');$('div:last'); <br>
+        7(2)内容过滤 <br>
+      $('.nn:contains(text)');$('.mm:empty')不含子元素或文本的元素!;$('div:has(.ll)');含有谁！$('div:parent');含有子元素或者文本的元素;  <br>
+        7(3)可见过滤 <br>
+      $('.ss:visible');  $('.ss:hidden');
+        7(4)属性过滤<br>
+        7(5)子元素过滤选择器  <br>
+        $('ul li:first-child'); 所有ul中的第一个li;$('ul li:last-child');所有ul中的最后li;$('ul li:nth-child(index/odd/even)');所有ul中的第几个li!(even偶数;odd奇数;2是2;3n/3n+1(n从1开始，与eq有点不同););
+
+     <h1>*8表单对象属性过滤选择器</h1>
+        8(1)普通选择<br> $('#ss:enabled');$('#sw:disabled');$('input:checked');$('select option:selected'); Tag中disabled="disabled",
+    checked="checked;  $('input:checked').length（获取选中input的个数）;$('select:selected').text()获取选中下拉框的文本;  <br>
+        8(2)表单内元素选择 <br>
+        $(':input'),选取所有input;$(':text'),选取所有文本；$(':pasword'),选取所有密码框;$(':radio'),all单;$(':checkbox'),all复;$(':submit'),all提交;$(':reset'),all重置;$(':button'),all按钮;$(':file'),all上传域;$(':hidden'),all隐藏！
+     <h1>*9JQ dom操作</h1>
+     <pre>
+     	   var  $li_1=$("<li title='香蕉'>香蕉</li>")
+     </pre>
+     <ul  class="ulss ">
+     	
+     </ul>
+     <h1>*10 .remove();.empty();</h1>
+     <pre>.remove() 删除节点;empty()清空节点;.clone(),复制元素!.clone(true)复制元素 同时复制元素绑定的事件！
+       $('p').replaceWith("<strong>你不喜欢么？</strong>"),替换掉P;$("<strong>你不喜欢么？</strong>").replaceAll('p');$('strong').wrap("<b></b>"),用b标签包住strong标签;$('strong').wrapInner("<b></b>"),将strong标签里的文本text用b包起来;.attr('src','sss');
+       .attr({'src':'...','title':'hgga'});css()与attr()差不多 用法，就是里面值不同和kvalue不同;.removeAttr('title');$('p').attr('clas','sss');等于重写class; .removeClass("heigh haha"),同时删除两个;focus()相
+       当于onfocus,blur相当于onblur;.children()只考虑 子元素！不考虑孙元素。.next().下一个兄弟.prev()上一个兄弟,siblings()all兄弟;</pre>
+     <input type="text" id="fobl">
+     <h1>*11.宽度，高度 和一些偏移等等</h1>
+     <p class="kekes">$obj.width();获取宽度！$boj.width('400px;')设置宽度!  $obj.offset().left; #obj.offset().top();相对于文档顶部左侧的偏移！默认圆点是body的左上角;延伸正坐标！scrollLeft和scrollTop仍需改进!</p> 
+     <h1>*12淘宝图片放大工程</h1>
+     <ul class="fangda clearfix">
+     	<li><img src="../image/a1.jpg" alt="" title="我爱妖狐"></li>
+     	<li><img src="../image/a3.jpg" alt="" title="我爱茨木"></li>
+     	<li><img src="../image/a5.jpg" alt="" title="软软捏"></li>
+     	<li><img src="../image/a6.jpg" alt="" title="连起来"></li>
+     </ul>
+     <h1>13*sdas</h1>
+	<script src="../js/jquery-1.9.1.min.js"></script>
+	<script>
+	  // windowm.onload=function(){
+	  // 	alert('ss')
+	  // }不可复写 ，只能写一次，再写后面会覆盖前面的
+		$(function(){
+		  // 1.^_^导航条
+				   $('.le1>a').click(function(){
+				 	 	 //一行搞定导航条！
+				 	 $(this).addClass('current').next().show().parent().siblings().children('a').removeClass('current').next().hide();
+				 	      //给当前a加上状态class,让其兄弟ul显示，然后回到父元素的兄弟元素中的a去掉状态class,兄弟a中对应的下一个ul 隐藏
+				 	   // 带上字体改进版的
+		       	       // $(this).addClass('current').next().show().find('a').css('color','blue').parent().parent().parent().siblings().children('a').removeClass('current').next().hide();
+				
+				    })
+		   // 2.^_^选项框
+				  //对象转换！
+				   var $kk=$('#keke');
+				   var  keke=$kk[0];
+				 // 模拟提交
+				     // 2.1js选
+					 // $('.ensure').click(function(){
+		    //               if(keke.checked){
+		    //               	alert('handsome boy! Ash good！')
+		    //               }
+					 // })
+					 //2.2JQ选择
+					  $('.ensure').click(function(){
+		                  if($kk.is(':checked')){
+		                  	alert('handsome boy! Ash good！')
+		                  }
+					 })
+            // 3.^_^JQ移交控制权；
+                //引入顺序.Jq最好引在其他庫之前
+	            //自动生命提前！小心使用
+	            // var $j=jQuery.noConflict();或var jq=jQuery.noConflict();
+	            // 如果不写var 接住，则$换成jQuery使用
+	            // $j('#12d').click(function(){
+	            // 	alert('ss')
+	            // })
+	        //4.优势,
+	           // sobj.style.color="red";
+            //5.选项框
+               //（1）精髓span触发 按钮
+               //（2）按钮以class判断作为依据较好！
+                 // 5.1全选按钮
+               var $qx=$('#qxn');
+              $qx.bind('click',function(){
+              	   // 改变状态，触发按钮
+              	  if(!$(this).hasClass('current')){
+              	     $(this).addClass('current');
+              	  	 $(this).attr('checked',true);
+              	     $('.tbh tr .che input').click()
+              	  }else{
+                     $(this).removeClass('current');
+              	  	 $(this).attr('checked',false);
+              	    $('.tbh tr .che input').click();
+              	  }
+              })
+                //5.2; 文字触发按钮
+	              $('.quanx').click(function(){
+	              	$qx.trigger('click');
+	              })
+	            //5.3单选按奶
+	              $('.tbh  tr .che input').on('click',function(){
+                      if(!$(this).hasClass('tbdg')){
+                          $(this).addClass('tbdg');
+                          $(this).attr('checked',true);
+                      }else{
+                      	  $(this).removeClass('tbdg');
+                      	  $(this).attr('checked',false);
+                      }
+	              })
+	          //6.DOM JQ
+	             var  $li1=$("<li title='香蕉'>香蕉</li>")
+	             var  $li2=$("<li title='香蕉'>香蕉</li>")
+	             var  $li3=$("<li title='香蕉'>香蕉</li>")
+	           //添加
+               $('.ulss').append($li1).append($li2).append($li3);
+               //加入
+               $('<b>你好</b>').appendTo($('.ulss'));
+               //前置
+               $('.ulss').prepend("<b>你好</b>")
+               $('.ulss').after("<b>哈哈哈哈哈哈哈</b>")
+               $('.ulss').before("<b>哈哈哈22222</b>")
+
+                $('#fobl').focus(function(){
+                	var  val_1=$(this).val();
+                	if(val_1=='请输入内容'){
+                		$('#fobl').val('');
+                	}
+                })
+                $('#fobl').blur(function(){
+                	var  val_1=$(this).val();
+                	if(val_1==''){
+                		$('#fobl').val('请输入内容');
+                	}
+                })
+              //7 元素宽高与滚动条问题      
+              console.log($('.kekes').width());          
+              console.log($('.kekes').height());          
+              console.log($('.kekes').offset().left);          
+              console.log($('.kekes').offset().top);  
+                 // scrollLeft和scrollTop待定        
+             //8放大尝试
+               //淘宝放大镜
+                  // 1.储存src和title的变量
+	             var titlin='';
+	             var srclin='';
+	             // var x=10;
+	             // var y=-200;
+	             $('.fangda li').mouseover(function(e){
+	             	//2.截取当前并保存
+	             	titlin=$(this).find('img').attr('title');
+	             	srclin=$(this).find('img').attr('src');
+	             	$(this).find('img').attr('title','');
+                    //3.创建放大容器
+	             	var chuxian="<div id='cxd'><img src='"+srclin+"' alt='咳咳' title='"+titlin+"' /></div>"
+	             	$('body').append(chuxian);
+	             	// 4。显示放大容器并定位
+	             	$('#cxd').css({
+	             		'position':'fixed',
+	             	    'top':'50%',
+	             	    'left':'50%',
+	             	    'margin-left':'-150px',
+	             	    'margin-top':'-150px'
+	             	}).show();
+
+	             }).mouseout(function(){
+	             	//5.取消放大容器，塞回title
+	             	 $(this).find('img').attr('title',titlin+'');
+	             	 $('#cxd').remove();
+	             })
+
+		})
+	</script>
+</body>
+</html>
